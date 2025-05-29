@@ -11,6 +11,8 @@ export class Authenication {
     return null;
   }
 
+
+
   public isAdmin(user: User): boolean {
     return user.role === "Admin";
   }
