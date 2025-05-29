@@ -2,7 +2,7 @@ import { ABA } from '../PaymentGetway/Getway/ABA';
 import { PayPal } from '../PaymentGetway/Getway/Papal';
 import { ACLEDA } from '../PaymentGetway/Getway/Acilida';
 import { PaymentService } from '../PaymentGetway/service/PaymentService';
-import { Order } from './OrderItem';
+import { OrderItem } from './OrderItem';
 import { PaymentMethod } from '../PaymentGetway/Enum/PaymentMethod';
 
 
@@ -22,10 +22,12 @@ function getGateway(method: PaymentMethod) {
 const method = PaymentMethod.PAYPAL;
 const gateway = getGateway(method);
 const service = new PaymentService(gateway);
-console.log(gateway);
+console.log(service);
 
 
-const order = new Order("order_001", 99.99);
+const order = new OrderItem("order_001", 99.99);
+console.log(order);
+
 service.checkout(order).then(result => {
   console.log("Order Status:", result.status);
   console.log("Transaction ID:", result.transactionId);

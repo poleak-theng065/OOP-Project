@@ -1,6 +1,6 @@
 
 import { IPaymentGateway } from "../Getway/InterfacepaymentGetway";
-import { Order } from "../../OrderItem/OrderItem";
+import { OrderItem } from "../../OrderItem/OrderItem";
 
 
 // 🧾 The method process() might call a real payment API or simulate one.
@@ -9,7 +9,7 @@ import { Order } from "../../OrderItem/OrderItem";
 export class PaymentService {
   constructor(private gateway: IPaymentGateway) {}
 
-  async checkout(order: Order): Promise<Order> {
+  async checkout(order: OrderItem): Promise<OrderItem> {
     try {
       const txnId = await this.gateway.process(order.totalAmount);
       order.complete(txnId);

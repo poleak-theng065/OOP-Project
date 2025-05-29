@@ -2,5 +2,6 @@
 export enum OrderStatus {
   PENDING = "Pending",
   COMPLETED = "Completed",
-  FAILED = "Failed"
+  FAILED = "Failed",
+  REFUNDED = "Refunded"
 }

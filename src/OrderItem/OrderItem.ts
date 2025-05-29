@@ -1,6 +1,6 @@
 import { OrderStatus } from "./orderStatus";
 
-export class Order {
+export class OrderItem {
   constructor(
     public id: string,
     public totalAmount: number,
