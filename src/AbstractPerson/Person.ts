@@ -93,6 +93,9 @@ export abstract class Person {
   getEmail(): string {
     return this.email;
   }
+  getPassword(): string {
+    return this.password;
+  }
 
   setEmail(newEmail: string): void {
     this.email = newEmail;

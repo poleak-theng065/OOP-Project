@@ -1,6 +1,9 @@
 import { Customer } from "../TypeOfUser/Customer/Customer";
-import { Admin } from "../TypeOfUser/Admin";
+import { Admin } from "../TypeOfUser/Admin/Admin";
+import { ConcreteAddress } from "../TypeOfUser/Customer/ConcreteAddress";
+import { Role } from "../Enum/UserType";
 
+// Sample users list
 export const users = [
   new Customer(
     "u1",
@@ -8,7 +11,9 @@ export const users = [
     "Sok",
     "poleak@example.com",
     "123456",
-    "Phnom Penh"
+    new ConcreteAddress("12 St", "Phnom Penh", "12000"),
+    "poleaksok",
+    Role.CUSTOMER
   ),
   new Admin(
     "a1",
@@ -16,6 +21,8 @@ export const users = [
     "Neat",
     "admin@example.com",
     "admin123",
-    "Siem Reap"
+    new ConcreteAddress("Admin Blvd", "Siem Reap", "13000"),
+    "chandyadmin",
+    Role.ADMIN
   )
 ];

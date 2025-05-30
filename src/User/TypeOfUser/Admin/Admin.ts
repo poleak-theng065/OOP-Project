@@ -2,10 +2,10 @@ import { Person } from "../../../AbstractPerson/Person";
 import { Role } from "../../Enum/UserType";
 import { Address } from "../../../AbstractPerson/Person";
 
-// Customer class
-export class Customer extends Person {
+export class Admin extends Person {
   private username: string;
   private role: Role;
+
 
   constructor(
     id: string,
@@ -15,11 +15,13 @@ export class Customer extends Person {
     password: string,
     address: Address,
     username: string,
-    role: Role = Role.USER
+    role: Role = Role.ADMIN
+ 
   ) {
     super(id, firstName, lastName, email, password, address);
     this.username = username;
     this.role = role;
+  
   }
 
   getUsername(): string {
@@ -30,9 +32,6 @@ export class Customer extends Person {
     return this.role;
   }
 
-  buyProduct(): void {
-    console.log(`${this.username} can buy products.`);
-  }
+
+
 }
-
-

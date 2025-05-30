@@ -1,35 +1,46 @@
-import { Authenication } from "./Authenication/Authenication";
-import { User } from "./TypeOfUser/User";
-import { Admin } from "./TypeOfUser/Admin";
+import { AdminAuthentication } from "./TypeOfUser/Admin/AdminAuthenication";
+import { Admin } from "./TypeOfUser/Admin/Admin";
+import { ConcreteAddress } from "./TypeOfUser/Customer/ConcreteAddress";
+import { Role } from "./Enum/UserType";
+import { CustomerAuthentication } from "./TypeOfUser/Customer/CustomerAuthenication";
+
+const adminAuth = new AdminAuthentication();
+const cusAuth = new CustomerAuthentication();
+
+const admin = new Admin(
+  "a1",
+  "Chandy",
+  "Neat",
+  "admin@example.com",
+  "admin123",
+  new ConcreteAddress("Admin Blvd", "Siem Reap", "13000"),
+  "chandyadmin",
+  Role.ADMIN
+);
+
+// Register customer using correct object format (not class instance)
+const customerRegisterResult = cusAuth.register({
+  id: "a2",
+  firstName: "Chandy",
+  lastName: "Neat",
+  email: "admin@example.com", // ⚠ You might want a unique email here
+  password: "admin123",
+  address: new ConcreteAddress("Admin Blvd", "Siem Reap", "13000"),
+});
+
+adminAuth.addAdmin(admin);
+
+const loginResult = adminAuth.login({
+  id: "a1",
+  email: "admin@example.com",
+  password: "admin123",
+});
+console.log(cusAuth.getAllCustomers());
+console.log(adminAuth.getAdminByEmail("admin@example.com"));
 
 
-let chandy = new Admin("admin","admin123");
-console.log(chandy);
-let poleak = new User("poleak","123456");
-const auth = new Authenication();
+console.log("Admin login success:", loginResult); // true
+console.log("Customer registration success:", customerRegisterResult); // true or false (if email already exists)
 
-function testLogin(username: string, password: string) {
-  const user = auth.login(username, password);
-
-  if (user) {
-    console.log(`✅ Logged in as ${user.username} (${user.role})`);
-    if (auth.isAdmin(user)) {
-      chandy.manageSystem();
- 
-      console.log("🔐 Admin access granted.");
-    } else {
-      poleak.buyProduct();
-      console.log("👤 Regular user access.");
-    }
-  } else {
-    console.log("❌ Invalid username or password.");
-  }
-}
-
-testLogin(poleak.username, poleak.getPassword());     // Regular user
-// // testLogin("admin", "admin123");   // Admin user
-// testLogin("john", "wrong");       // Invalid
-
-
-// Run Testing
-// ts-node ./src/User/Testing.ts
+// Testing 
+// ts-node src/User/Testing.ts
