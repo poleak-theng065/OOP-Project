@@ -1,6 +1,5 @@
 import { Authentication } from "../../InterfaceAuthenication/InterfaceAuthenication";// adjust path as needed
 import { Admin } from "./Admin";
-import { Address } from "../../../AbstractPerson/Person";
 
 export class AdminAuthentication implements Authentication {
   private admins: Admin[] = [];
