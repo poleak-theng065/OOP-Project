@@ -1,6 +1,7 @@
 import { Role } from "../Enum/UserType";
 
 export class User {
+    name: any;
   constructor(
     public username: string,
     private password: string,
