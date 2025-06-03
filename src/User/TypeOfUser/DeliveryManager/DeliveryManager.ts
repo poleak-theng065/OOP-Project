@@ -38,7 +38,7 @@ export class DeliveryManager extends Person {
   public checkShipmentDetails(shipment: Shipment): void {
     console.log(`Checking shipment #${shipment.getTrackingNumber()}`);
     console.log(`Delivery type: ${shipment.getDeliveryOption().getDeliveryType()}`);
-    console.log(`Destination: ${shipment.getDestination().fullAddress}`);
+    console.log(`Destination: ${shipment.getDestination().fullAddress()}`);
   }
 
   public trackDelivery(shipment: Shipment): string {
