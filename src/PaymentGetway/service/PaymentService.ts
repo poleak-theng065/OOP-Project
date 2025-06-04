@@ -1,20 +1,17 @@
-
 import { IPaymentGateway } from "../Getway/InterfacepaymentGetway";
-import { OrderItem } from "../../OrderItem/OrderItem";
+import { Payment } from "../Payment";
 
-
-// 🧾 The method process() might call a real payment API or simulate one.
-// 🕓 await makes sure the order is only marked as complete after the payment actually succeeds.
-// ⛔ If the payment fails (e.g. API error), it jumps to the catch block.
 export class PaymentService {
   constructor(private gateway: IPaymentGateway) {}
 
-  async checkout(order: OrderItem): Promise<OrderItem> {
+  async checkout(order: Payment): Promise<Payment> {
     try {
       const txnId = await this.gateway.process(order.totalAmount);
       order.complete(txnId);
-    } catch {
+      console.log("✅ Payment completed. Transaction ID:", txnId);
+    } catch (error) {
       order.fail();
+      console.error("❌ Payment failed.", error);
     }
     return order;
   }
