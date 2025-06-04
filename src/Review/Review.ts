@@ -1,18 +1,19 @@
 import { Product } from "../Product/Products";
 import { Customer } from "../User/TypeOfUser/Customer/Customer";
-import { User } from "../User/TypeOfUser/User";
 
 export class Review {
     private product: Product ;
     private customer: Customer ;
     private rating: number;
     private comment: string;
+    private createdAt: Date;
 
     constructor(customer: Customer, product: Product, rating: number, comment: string) {
         this.customer = customer;
         this.product = product;
         this.rating = rating;
         this.comment = comment;
+        this.createdAt = new Date();
     }
 
     getRating(): void {
@@ -32,6 +33,8 @@ export class Review {
         console.log("📦📝 Product... Reviewing");
         console.log("⭐ Rating:", this.rating);
         console.log("💬 Comment:", this.comment);
+        console.log("🕒 Date:", this.createdAt.toLocaleString());
+
     }
 
 }
