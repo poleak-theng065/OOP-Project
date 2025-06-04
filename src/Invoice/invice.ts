@@ -1,4 +1,5 @@
 import { Order } from "../Order/Order";
+import { Payment } from "../PaymentGetway/Payment";
 
 export class Invoice {
     private order: Order;
