@@ -2,17 +2,18 @@ import { DeliveryManager } from "../User/TypeOfUser/DeliveryManager/DeliveryMana
 import { Payment } from "../PaymentGetway/Payment";
 import { DeliveryOption } from "./DeliveryOption/DeliveryOption";
 import { Address } from "../AbstractPerson/Person";
+import { OrderItem } from "../OrderItem/OrderItem";
 
 export class Shipment {
     private manager: DeliveryManager;
-    private orderItems : [];
+    private orderItems : OrderItem[];
     private deliveryOption: DeliveryOption;
     private trackingNumber: string;
     private destination: Address;
 
     constructor(
         manager: DeliveryManager,
-        orderItems: [],
+        orderItems: OrderItem[],
         deliveryOption: DeliveryOption,
         trackingNumber: string,
         destination: Address
@@ -45,7 +46,7 @@ export class Shipment {
         return this.destination;
     }
 
-    public getOrderItems(): [] {
+    public getOrderItems(): OrderItem[] {
         return this.orderItems;
     }
 
