@@ -1,19 +1,17 @@
-import { OrderStatus } from "./orderStatus";
+import { Products } from "../Product/Products";
 
-export class OrderItem {
-  constructor(
-    public id: string,
-    public totalAmount: number,
-    public status: OrderStatus = OrderStatus.PENDING,
-    public transactionId?: string
-  ) {}
+export class OrderItems {
+    private product: Products;
+    private quantity: number;
+    private orderId: string;
 
-  complete(txnId: string) {
-    this.status = OrderStatus.COMPLETED;
-    this.transactionId = txnId;
-  }
+    constructor(product: Products, quantity: number, orderId: string) {
+        this.product = product;
+        this.quantity = quantity;
+        this.orderId = orderId;
+    }
 
-  fail() {
-    this.status = OrderStatus.FAILED;
-  }
+    getproduct(): Products {
+        return this.product;
+    }
 }

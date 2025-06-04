@@ -1,18 +1,23 @@
 import { Products } from "./Products";
 
 export class Category {
-    private categoryID: string;
-    private categoryName: string;
-    private prducts: Products[];
+    private name: string;
+    private proucts: Products[];
 
-    constructor(categoryID: string, categoryName: string, products: Products[]) {
-        this.categoryID = categoryID;
-        this.categoryName = categoryName;
-        this.prducts = products;
+    constructor(name: string, products: Products[] = []) {
+        this.name = name;
+        this.proucts = products;
     }
 
-    public getProducts(): Products[] {
-        return this.prducts;
+    getProductsInCategory(): Products[] {
+        return this.proucts;
     }
-    
+
+    addProduct(product: Products): void {
+        this.proucts.push(product);
+    }
+
+    getCategoryies(): string {
+        return this.name;
+    }
 }
