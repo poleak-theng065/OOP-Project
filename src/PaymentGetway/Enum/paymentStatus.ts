@@ -1,5 +1,5 @@
 // src/domain/order/Order.ts
-export enum OrderStatus {
+export enum PaymentStatus {
   PENDING = "Pending",
   COMPLETED = "Completed",
   FAILED = "Failed",

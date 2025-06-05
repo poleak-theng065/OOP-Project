@@ -39,6 +39,6 @@ export class ConcreteAddress extends Address {
    * Returns the full address formatted as a string.
    */
   fullAddress(): string {
-    return `${this.street}, ${this.city}, ${this.country}`;
+    return this.street, this.city, this.country;
   }
 }
