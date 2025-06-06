@@ -1,11 +1,11 @@
 import { Order } from "../Order/Order";
-import { Payment } from "../PaymentGetway/Payment";
+import { PaymentGateway } from "../PaymentGetway/PaymentGetway";
 
 export class Invoice {
     private order: Order;
-    private payment: Payment;
+    private payment: PaymentGateway;
 
-    constructor(order: Order, payment: Payment) {
+    constructor(order: Order, payment: PaymentGateway) {
         this.order = order;
         this.payment = payment;
     }
