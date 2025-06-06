@@ -6,7 +6,7 @@ export class Reviews {
     private product: Products;
     private rating: number;
     private comment: string;
-    private createDate: Date;
+    private createdAt: Date;
 
     constructor(
         customer: Customer,
@@ -19,12 +19,12 @@ export class Reviews {
         this.product = product;
         this.rating = rating;
         this.comment = comment;
-        this.createDate = createDate;
+        this.createdAt = new Date();
     }
 
     getReview(): string {
         return `Review for ${this.product.getName()} by ${this.customer.getUsername()}: 
-                Rating: ${this.rating}, Comment: ${this.comment}, Date: ${this.createDate.toLocaleDateString()}`;
+                Rating: ${this.rating}, Comment: ${this.comment}, Date: ${this.createdAt.toLocaleDateString()}`;
     }
 
     getGlobalRating(): number {
@@ -46,7 +46,16 @@ export class Reviews {
         }
         this.rating = rating;
         this.comment = comment;
-        this.createDate = new Date();
+        this.createdAt = new Date();
         this.product.addReview(this); // Add review to the product's reviews
     }
+
+    showReview() {
+        console.log("📦📝 Product... Reviewing");
+        console.log("⭐ Rating:", this.rating);
+        console.log("💬 Comment:", this.comment);
+        console.log("🕒 Date:", this.createdAt.toLocaleString());
+
+    }
+
 }
