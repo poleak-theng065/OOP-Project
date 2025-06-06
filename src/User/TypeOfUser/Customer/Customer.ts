@@ -44,4 +44,7 @@ export class Customer extends Person {
   getEmail(): any {
     throw new Error("Method not implemented.");
   }
+  getPassword ():string {
+    return this.password;
+  }
 }
