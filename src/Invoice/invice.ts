@@ -14,7 +14,7 @@ export class Invoice {
         console.log("=".repeat(40));
         console.log(" ".repeat(12) + "🧾 INVOICE");
         console.log("=".repeat(40));
-        console.log(`👤 Customer     : ${this.order.getCustomer().getFirstName()}`);
+        console.log(`👤 Customer     : ${this.order.getCustomer().getFirstName()} ${this.order.getCustomer().getLastName()}`);
         console.log(`🛒 Order Details: ${this.order.getOrderDetails()}`);
         console.log("-".repeat(40));
         console.log(`💵 Total Amount : $${this.order.getTotalAmount().toFixed(2)}`);
