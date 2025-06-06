@@ -1,47 +1,52 @@
-import { Product } from "../Product/Products";
+import { Products } from "../Product/Products";
 import { Customer } from "../User/TypeOfUser/Customer/Customer";
-import { User } from "../User/TypeOfUser/User";
 
-export class Review {
-    private product: Product ;
-    private customer: Customer ;
+export class Reviews {
+    private customer: Customer;
+    private product: Products;
     private rating: number;
     private comment: string;
+    private createDate: Date;
 
-    constructor(customer: Customer, product: Product, rating: number, comment: string) {
+    constructor(
+        customer: Customer,
+        product: Products,
+        rating: number,
+        comment: string,
+        createDate: Date = new Date()
+    ) {
         this.customer = customer;
         this.product = product;
         this.rating = rating;
         this.comment = comment;
+        this.createDate = createDate;
     }
 
-    getRating(): void {
-        console.log(`Product rating: ${this.rating}`);
+    getReview(): string {
+        return `Review for ${this.product.getName()} by ${this.customer.getUsername()}: 
+                Rating: ${this.rating}, Comment: ${this.comment}, Date: ${this.createDate.toLocaleDateString()}`;
     }
 
-    getComment(): void {
-        console.log(`Product commenting: ${this.comment}`);
+    getGlobalRating(): number {
+        return this.rating;
     }
 
-    editReview(rate: number, comment: string) {
-        this.rating = rate;
+    // Placeholder: Check if product was delivered (requires order system integration)
+    private canReviewAfterDelivery(): boolean {
+        // In a real system, check order status for this product and customer
+        // Assume a function `isProductDelivered(orderId, product, customer)` exists
+        console.warn("Delivery check not implemented; assuming delivered for testing.");
+        return true; // Placeholder
+    }
+
+    // User Story 6: As a customer, I want to review a product after delivery
+    addReviewAfterDelivery(rating: number, comment: string): void {
+        if (!this.canReviewAfterDelivery()) {
+            throw new Error("Cannot review: Product has not been delivered yet.");
+        }
+        this.rating = rating;
         this.comment = comment;
+        this.createDate = new Date();
+        this.product.addReview(this); // Add review to the product's reviews
     }
-
-    showReview() {
-        console.log("📦📝 Product... Reviewing");
-        console.log("⭐ Rating:", this.rating);
-        console.log("💬 Comment:", this.comment);
-    }
-
 }
-
-// let address1 = new ConcreteAddress("a", "b", "c");
-// let person1 = new Customer("p1", "hi", "hak", "gmail", "1", address1, "hihi", Role.CUSTOMER);
-// let product1 = new Product();
-// let review1 = new Review(person1, product1, 3, "Medium");
-// review1.showReview();
-// review1.editReview(5, "Very good");
-// review1.getRating();
-// review1.getComment();
-// review1.showReview();

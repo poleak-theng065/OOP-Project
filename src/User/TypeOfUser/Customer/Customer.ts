@@ -1,11 +1,11 @@
-import { Person } from "../../../AbstractPerson/Person";
+import { Address, Person } from "../../../AbstractPerson/Person";
 import { Role } from "../../Enum/UserType";
-import { Address } from "../../../AbstractPerson/Person";
 
 // Customer class
 export class Customer extends Person {
   private username: string;
   private role: Role;
+  private address: Address;
 
   constructor(
     id: string,
@@ -17,9 +17,10 @@ export class Customer extends Person {
     username: string,
     role: Role = Role.USER
   ) {
-    super(id, firstName, lastName, email, password, address);
+    super(id, firstName, lastName, email, password);
     this.username = username;
     this.role = role;
+    this.address = address;
   }
 
   getUsername(): string {
@@ -33,6 +34,14 @@ export class Customer extends Person {
   buyProduct(): void {
     console.log(`${this.username} can buy products.`);
   }
+
+  getFirstName(): any {
+    throw new Error("Method not implemented.");
+  }
+  getLastName(): any {
+    throw new Error("Method not implemented.");
+  }
+  getEmail(): any {
+    throw new Error("Method not implemented.");
+  }
 }
-
-
