@@ -4,8 +4,15 @@ import { Address } from "../../../AbstractPerson/Person";
 
 // Customer class
 export class Seller extends Person {
+  getEmail() {
+    throw new Error("Method not implemented.");
+  }
+  getPassword() {
+    throw new Error("Method not implemented.");
+  }
   private username: string;
   private role: Role;
+  private address: Address;
 
   constructor(
     id: string,
@@ -17,9 +24,10 @@ export class Seller extends Person {
     username: string,
     role: Role = Role.SELLER
   ) {
-    super(id, firstName, lastName, email, password, address);
+    super(id, firstName, lastName, email, password);
     this.username = username;
     this.role = role;
+    this.address = address; // Assuming address is set in the Person class
   }
 
   getUsername(): string {

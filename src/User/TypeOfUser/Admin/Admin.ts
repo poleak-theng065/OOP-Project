@@ -18,7 +18,7 @@ export class Admin extends Person {
     role: Role = Role.ADMIN
  
   ) {
-    super(id, firstName, lastName, email, password, address);
+    super(id, firstName, lastName, email, password,);
     this.username = username;
     this.role = role;
   

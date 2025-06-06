@@ -3,6 +3,7 @@ import { Role } from "../../Enum/UserType";
 
 // Customer class
 export class Customer extends Person {
+  [x: string]: any;
   private username: string;
   private role: Role;
   private address: Address;
