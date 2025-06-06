@@ -9,5 +9,7 @@
       "rootDir": "src"            // Where your TypeScript files are
     },
     "include": ["src/**/*"],        // Include all .ts files in the src folder
-    "exclude": ["node_modules"]     // Don't compile node_modules
+    "exclude": ["node_modules"],     // Don't compile node_modules
+    "lib": ["es2016", "dom"]
+
   }

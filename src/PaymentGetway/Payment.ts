@@ -1,5 +1,4 @@
 import { PaymentStatus } from "./Enum/paymentStatus";
-
 export class Payment {
   // Added date property
   constructor(
