@@ -2,6 +2,7 @@ import { PaymentStatus } from "./Enum/paymentStatus";
 
 export class Payment {
   constructor(
+
     public id: string,
     public totalAmount: number,
     public status: PaymentStatus = PaymentStatus.PENDING,

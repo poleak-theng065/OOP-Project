@@ -2,7 +2,7 @@ import { ABA } from '../PaymentGetway/Getway/ABA';
 import { PayPal } from '../PaymentGetway/Getway/Papal';
 import { ACLEDA } from '../PaymentGetway/Getway/Acilida';
 import { PaymentService } from '../PaymentGetway/service/PaymentService';
-import { OrderItem } from './OrderItem';
+import { Payment } from '../PaymentGetway/Payment';
 import { PaymentMethod } from '../PaymentGetway/Enum/PaymentMethod';
 
 
@@ -25,7 +25,7 @@ const service = new PaymentService(gateway);
 console.log(service);
 
 
-const order = new OrderItem("order_001", 99.99);
+const order = new Payment("order_001", 99.99);
 console.log(order);
 
 service.checkout(order).then(result => {
