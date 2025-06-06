@@ -79,7 +79,12 @@ export class Order {
         return this.customer;
     }
 
-    getTotal(): number {
+    getTotalAmount(): number {
         return this.total;
     }
+
+    getOrderDetails(): string {
+    return this.items.map(item => item.toString()).join(", ");
+}
+
 }

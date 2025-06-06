@@ -14,7 +14,7 @@ export class Invoice {
         console.log("=".repeat(40));
         console.log(" ".repeat(12) + "🧾 INVOICE");
         console.log("=".repeat(40));
-        console.log(`👤 Customer     : ${this.order.getCustomerName()}`);
+        console.log(`👤 Customer     : ${this.order.getCustomer().getFullName()}`);
         console.log(`🛒 Order Details: ${this.order.getOrderDetails()}`);
         console.log("-".repeat(40));
         console.log(`💵 Total Amount : $${this.order.getTotalAmount().toFixed(2)}`);
@@ -28,6 +28,18 @@ export class Invoice {
     
 
     sendToUser(): void {
-
+        let customerEmail = this.order.getCustomer().getEmail();
+        console.log(`📧 Sending invoice to ${customerEmail}...`);
+        this.generate(); 
+        console.log("✅ Invoice sent successfully!");
     };
 }
+
+// const order = new Order(customer);
+// order.createOrderItems([item1, item2]);
+
+// const payment = new Payment("Credit Card", new Date());
+// order['payment'] = payment; 
+
+// const invoice = new Invoice(order, payment);
+// invoice.generate();
