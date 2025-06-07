@@ -1,8 +1,9 @@
-import { AdminAuthentication } from "./TypeOfUser/Admin/AdminAuthenication";
-import { Admin } from "./TypeOfUser/Admin/Admin";
-import { ConcreteAddress } from "./TypeOfUser/Customer/ConcreteAddress";
-import { Role } from "./Enum/UserType";
-import { CustomerAuthentication } from "./TypeOfUser/Customer/CustomerAuthenication";
+import { Role } from "../core/enums/UserType";
+import { Admin } from "./Admin/Admin";
+import { AdminAuthentication } from "./Admin/AdminAuthenication";
+import { ConcreteAddress } from "./Customer/ConcreteAddress";
+import { CustomerAuthentication } from "./Customer/CustomerAuthenication";
+
 
 const adminAuth = new AdminAuthentication();
 const cusAuth = new CustomerAuthentication();
