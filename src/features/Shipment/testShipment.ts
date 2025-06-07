@@ -1,11 +1,9 @@
-import { DeliveryManager } from "../User/TypeOfUser/DeliveryManager/DeliveryManager";
-import { Shipment } from "./Shipment";
+import { Role } from "../../core/enums/UserType";
+import { ConcreteAddress } from "../../User/Customer/ConcreteAddress";
+import { DeliveryManager } from "../../User/DeliveryManager/DeliveryManager";
 import { DeliveryOption } from "./DeliveryOption/DeliveryOption";
 import { DeliveryType } from "./DeliveryOption/enum/DeliveryType";
-import { Role } from "../User/Enum/UserType";
-import { Payment } from "../PaymentGetway/Payment";
-import { ConcreteAddress } from "../User/TypeOfUser/Customer/ConcreteAddress";
-import { Address } from "../AbstractPerson/Person";
+import { Shipment } from "./Shipment";
 
 
 

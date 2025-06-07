@@ -1,7 +1,8 @@
-import { Customer } from "../TypeOfUser/Customer/Customer";
-import { Admin } from "../TypeOfUser/Admin/Admin";
-import { ConcreteAddress } from "../TypeOfUser/Customer/ConcreteAddress";
-import { Role } from "../Enum/UserType";
+import { Admin } from "../../User/Admin/Admin";
+import { ConcreteAddress } from "../../User/Customer/ConcreteAddress";
+import { Customer } from "../../User/Customer/Customer";
+import { Role } from "../enums/UserType";
+
 
 // Sample users list
 export const users = [

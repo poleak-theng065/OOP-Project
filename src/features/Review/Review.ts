@@ -1,5 +1,6 @@
+import { Customer } from "../../User/Customer/Customer";
 import { Products } from "../Product/Products";
-import { Customer } from "../User/TypeOfUser/Customer/Customer";
+
 
 export class Reviews {
     private customer: Customer;
